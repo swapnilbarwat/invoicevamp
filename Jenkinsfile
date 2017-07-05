@@ -12,5 +12,5 @@ node {
       echo "static analysis for "
    }
 }
-stage "Deploy to dev"
+stage "Deploy to dev. Mouse hover to select the option."
 input message: 'Do you want to deploy?', submitter: 'Yes'
