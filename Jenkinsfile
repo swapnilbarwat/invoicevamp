@@ -13,7 +13,7 @@ node {
          def commit_id = readFile('.git/commit-id').trim()
          println commit_id
          docker.build "snapshot"
-         docker.image('snapshot').push('shapshot')
+         sh "docker gcloud docker -- push gcr.io/vampify/invoiceninja:snapshot"
        }
    }
 }
