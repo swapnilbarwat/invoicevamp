@@ -8,8 +8,12 @@ node {
       // **       in the global configuration.           
    }
    stage('Build') {
-      // Run the maven build
-      echo "static analysis for "
+       docker.withRegistry('https://us.gcr.io', 'vampify') {
+         sh "git rev-parse HEAD > .git/commit-id"
+         def commit_id = readFile('.git/commit-id').trim()
+         println commit_id
+         def app = docker.build "invoiceninja"
+       }
    }
 }
 stage "Deploy to dev. Mouse hover to select the option."
