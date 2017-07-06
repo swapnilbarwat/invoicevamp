@@ -8,7 +8,7 @@ node {
       // **       in the global configuration.           
    }
    stage('Build') {
-       docker.withRegistry('https://us.gcr.io', 'vampify') {
+       docker.withRegistry('https://us.gcr.io', '4f84bde4-a0a6-4dca-9259-3fb7dc48abe2') {
          sh "git rev-parse HEAD > .git/commit-id"
          def commit_id = readFile('.git/commit-id').trim()
          println commit_id
