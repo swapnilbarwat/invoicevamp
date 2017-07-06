@@ -8,11 +8,12 @@ node {
       // **       in the global configuration.           
    }
    stage('Build') {
-       docker.withRegistry('https://gcr.io', 'vampify') {
+       docker.withRegistry('https://gcr.io') {
          sh "git rev-parse HEAD > .git/commit-id"
          def commit_id = readFile('.git/commit-id').trim()
          println commit_id
-         def app = docker.build "invoiceninja"
+         docker.build "snapshot"
+         docker.image('snapshot').push('shapshot')
        }
    }
 }
