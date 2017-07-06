@@ -1,0 +1,10 @@
+---
+name: invoiceninja:0.0.1
+deployable: invoiceninja:0.0.1
+
+ports:
+  web: 8080/http
+
+dependencies:
+  mysql: mysql
+  nginx: nginx

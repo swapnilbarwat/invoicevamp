@@ -1,0 +1,6 @@
+---
+name: nginx
+deployable: nginx
+
+ports:
+  web: 80/http
